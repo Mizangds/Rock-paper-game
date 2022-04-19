@@ -1,0 +1,88 @@
+# This is a rock, paper, scissor game.
+# If you choose rock and computer choose scissors then you win the game.
+# elif you choose paper and computer choose rock then you win the game.
+# elif you choose scissors and computer choose paper then you win the game. Until Computer win...thanks
+
+import random
+game = ("r", "p", "s")
+chance = 8
+my_score = 0
+com_score = 0
+no_chance = 0
+print("""Choose one r, p, s :-
+r for rock
+p for paper
+s for scissor""")
+
+#while condition is true
+while no_chance < chance:
+    guess = input("My choice is : ").lower()
+    _random = random.choice(game)
+
+    if guess == _random:
+        print("Both are same.")
+# This condition is win for computer
+    elif guess == "r" and _random == "p":
+        com_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("Computer won. you loose")
+    elif guess == "p" and _random == "s":
+        com_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("Computer won. you loose")
+    elif guess == "s" and _random == "r":
+        com_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("Computer won. you loose")
+
+# This condition is win for computer
+    elif guess == "p" and _random == "r":
+        my_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("You won. & get 5 point")
+    elif guess == "s" and _random == "p":
+        my_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("You won. & get 5 point")
+
+    elif guess == "r" and _random == "s":
+        my_score += 5
+        print(f"\tyou guess : {guess} & computer guess : {_random}")
+        print("You won. & get 5 point")
+    else:
+        print("Wrong input.enter valid input")
+        continue
+
+# Condition of chance
+    no_chance = no_chance + 1
+    print(f"\tyou have : {chance - no_chance} chance out of {chance}\n")
+
+print("Game over")
+
+# Who win the game
+if my_score > com_score:
+    print("Congratulation!. You win the game")
+    print(f"Your score is : {my_score} \n\tComputer score is : {com_score}")
+elif my_score < com_score:
+    print("\tSorry. You loose")
+    print(f"Your score is : {my_score} \n\tComputer score is : {com_score}")
+elif my_score == com_score:
+    print("Tie,Both are same,")
+    print(f"Your score is : {my_score} \n\tComputer score is : {com_score}")
+else:
+    print("Invalid syntext")
+
+
+# How played you are
+if 0 < my_score <= 10 and my_score > com_score:
+    print("Not Bad")
+if 10 < my_score <= 30 and my_score > com_score:
+    print("Well Played Hero")
+elif 30 < my_score <= 50 and my_score > com_score:
+    print("you are a Good player")
+elif my_score > 50 and my_score > com_score:
+    print("WOW! you are a Excellent player")
+else:
+    print("You are a super Looser. Better luck next time")
+
+print("This game developed by : Md Habibur Rahman. Thanks")
